@@ -1,0 +1,30 @@
+<div class="container vh-100 d-flex flex-column align-items-center mt-4">
+  <%# <h1 class="d-flex col-12 justify-content-center mb-2"> ShopNinja </h1> %>
+  <%= image_tag "ShopNinjaLysserrød.webp", alt: "Mit logo", class: "logo-class mb-5 w-25 w-50-md"  %>
+    <div class="card shadow-lg p-4 col-md-6 col-lg-4">
+        <h1 class="text-center mb-4">Login</h1>
+
+        <% if flash[:notice] %>
+            <div class="alert alert-info">
+                <%= flash[:notice] %>
+            </div>
+        <% end %>
+
+        <%= form_with model: @user, url: :check_login, local: true do |form| %>
+            <div class="mb-3">
+                <%= form.label :username, "Brugernavn", class: "form-label" %>
+                <%= form.text_field :username, class: "form-control" %>
+            </div>
+            <div class="mb-3">
+                <%= form.label :password, "Adgangskode", class: "form-label" %>
+                <%= form.password_field :password, class: "form-control" %>
+            </div>
+            <div class="d-grid">
+                <%= form.submit "Log ind", class: "btn btn-primary btn-block" %>
+            </div>
+            <div class="text-center mt-3">
+                <%= link_to "Opret konto", create_account_path, class: "btn btn-outline-secondary" %>
+            </div>
+        <% end %>
+    </div>
+</div>

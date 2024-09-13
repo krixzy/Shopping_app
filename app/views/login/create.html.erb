@@ -1,0 +1,41 @@
+<div class="container vh-100 d-flex flex-column align-items-center mt-4">
+  <%# <h1 class="d-flex col-12 justify-content-center mb-2"> ShopNinja </h1> %>
+  <%= image_tag "ShopNinjaLysserrød.webp", alt: "Mit logo", class: "logo-class mb-5 w-25"  %>
+  <div class="card shadow-lg p-4 col-md-6 col-lg-4">
+        <h1 class="text-center mb-4">Opret konto</h1>
+
+        <% if flash[:notice] %>
+            <div class="alert alert-info">
+                <%= flash[:notice] %>
+            </div>
+        <% end %>
+
+    <%= form_with model: @user, url: :new_account, local: true do |form| %>
+      <div class="mb-3">
+        <%= form.label :username, "Brugernavn", class: "form-label" %>
+        <%= form.text_field :username, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :email, "Email", class: "form-label" %>
+        <%= form.email_field :email, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :password, "Adgangskode", class: "form-label" %>
+        <%= form.password_field :password, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+          <%= form.label :password_confirmation, "Bekræft adgangskode", class: "form-label" %>
+          <%= form.password_field :password_confirmation, class: "form-control" %>
+        </div>
+      <div class="d-grid">
+        <%= form.submit "Opret konto", class: "btn btn-primary" %>
+        <div class="text-center mt-3">
+            <%= link_to "Tilbage til login", login_path, class: "btn btn-outline-secondary"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
