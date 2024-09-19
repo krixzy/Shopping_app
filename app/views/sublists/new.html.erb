@@ -1,0 +1,10 @@
+<h1 class="text-center">Create a new Sublist name</h1>
+<%= turbo_frame_tag "new_sublist" do %>
+  <% if flash[:notice] %>
+    <div class="alert alert-info">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <%= render 'form', sublist: @sublist %>
+<% end %>

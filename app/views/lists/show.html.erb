@@ -1,0 +1,8 @@
+<div class="d-flex justify-content-center mt-3 flex-column justify-content-center align-items-center ">
+     <h1><%= @list.name%> </h1>
+
+    <%= turbo_frame_tag "new_sublist" do %>
+        <%= link_to "Tilføj inkøbslokation", new_list_sublist_path(@list), class: "btn btn-primary" %>
+    <% end %>
+
+</div>

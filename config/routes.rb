@@ -14,7 +14,12 @@ Rails.application.routes.draw do
   root "index#index"
 
 
-  resources :list
+
+  resources :lists do 
+    resources :sublists, only: [:create, :destroy, :update, :new]
+  end
+  resources :items, only: [:create, :destroy, :update, :new]
+  resources :lists
   get "login" => "login#login", as: :login
   post "check_login" => "login#check_login", as: :check_login
   get "create" => "login#create", as: :create_account

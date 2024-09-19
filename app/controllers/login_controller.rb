@@ -7,10 +7,12 @@ class LoginController < ApplicationController
   
 
     def check_login
-      @user = User.find_by(username: params[:username])
-      if @user && @user.authenticate(params[:password])
+      puts params.inspect
+      @user = User.find_by(username: params[:user][:username])
+  if @user && @user.authenticate(params[:user][:password]) 
+        puts "login success"
         session[:user_id] = @user.id
-        redirect_to :list_index
+        redirect_to lists_path
       else
         flash[:notice] = "forkert brugernavn eller adgangskode"   
         render :login

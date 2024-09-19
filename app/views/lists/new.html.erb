@@ -1,0 +1,13 @@
+<h1 class="text-center" >Create a new List name</h1>
+
+<div class="d-flex justify-content-center ">
+  <%= turbo_frame_tag "newList" do %>
+    <% if flash[:notice] %>
+      <div class="alert alert-info">
+          <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <%= render 'form', list: @list %>
+  <% end %>
+</div>
+

@@ -1,0 +1,8 @@
+<%= turbo_stream.append "list_items" do %>
+  <%= render partial: "item", locals: { l: @list } %>
+<% end %>
+<%= turbo_stream.replace "newList" do %>
+  <%= turbo_frame_tag "newList" do %>
+        <%= link_to "Tilføj ny liste", new_list_path, class: "btn btn-primary" %>
+  <% end %>
+<% end %> 
