@@ -6,6 +6,6 @@
 
     <div class="form-group d-flex justify-content-center">
       <%= f.submit "Tilføj liste", class: "btn btn-primary" %>
-      <%= link_to "Fortyrd", list_path(), class: "btn btn-danger"%>
+      <%= link_to "Fortyrd", list_path(params[:list_id]), class: "btn btn-danger"%>
     </div>
 <% end %>

@@ -9,7 +9,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    @items = Item.where(list_id: @list.id)
+    @sublists = Sublist.where(list_id: params[:id])
   end
 
   def create
@@ -23,13 +23,13 @@ class ListsController < ApplicationController
       end
     else
       flash[:notice] = "Navn allerede i brug"
-      render 'new'
+      redirect_to new_list_path
     end
   end
   def destroy
     @list = List.find(params[:id])
     @list.destroy
-    redirect_to lists_path
+    redirect_to new_list_path
   end
 
   def update

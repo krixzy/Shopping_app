@@ -10,7 +10,7 @@ class SublistsController < ApplicationController
       redirect_to list_path(params[:list_id])
     else
       flash[:notice] = "Navn allerede i brug"
-      render
+      redirect_to new_list_sublist_path(params[:list_id])
     end
   end
 
