@@ -13,12 +13,15 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "index#index"
 
-
+  resources :lists do 
+    resources :sublists do 
+      resources :items, only: [:create, :destroy, :update, :new]
+    end
+  end
 
   resources :lists do 
     resources :sublists, only: [:create, :destroy, :update, :new]
   end
-  resources :items, only: [:create, :destroy, :update, :new]
   resources :lists
   get "login" => "login#login", as: :login
   post "check_login" => "login#check_login", as: :check_login

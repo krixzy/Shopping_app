@@ -1,0 +1,8 @@
+<%= turbo_stream.append "sublist_items" do %>
+  <%= render partial: "lists/sublist", locals: { sublist: @sublist, list_id: params[:list_id] } %>
+<% end %>
+<%= turbo_stream.replace "new_sublist" do%>
+   <%= turbo_frame_tag "new_sublist" do %>
+        <%= link_to "Tilføj inkøbslokation", new_list_sublist_path(@list), class: "btn btn-primary" %>
+    <% end %>   
+<% end %>

@@ -1,8 +1,9 @@
-<div class="card mt-3">
+<div class="card mt-3" id="<%= dom_id(sublist) %>">
   <div class="card-body">
-    <h3 class="card-title"><%= sublist.name %></h3>
-    <%= turbo_frame_tag "new_item"%>
-        <%%>
+    <h5 class="card-title text-center"><%= sublist.name %></h5>
+    <%= turbo_frame_tag "new_item" do %>
+        <%= link_to "Tilføj vare", new_list_sublist_item_path(list_id, sublist.id), class: "btn btn-primary" %>
+        <%= link_to "Slet", list_sublist_path(list_id, sublist.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger"%>
     <% end %>
   </div>
 </div>

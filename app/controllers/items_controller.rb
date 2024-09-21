@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+class ItemsController < SessionController
   def create
   end
 
