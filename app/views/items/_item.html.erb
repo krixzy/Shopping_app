@@ -1,0 +1,6 @@
+<tr id="<%= dom_id(item) %>">
+  <td><%= item.amount %></td>
+  <td><%= item.name %></td>
+  <td><%= "#{item.price} kr" %></td>
+    <td><%= link_to "Slet", list_sublist_item_path(list_id, sublist_id, item), data: { turbo_method: :delete, turbo_confirm: "Er du sikker på du vil slette denne vare?" }, class: "btn btn-danger" %></td>
+</tr>

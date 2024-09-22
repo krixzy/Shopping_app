@@ -1,11 +1,11 @@
  
- <div class="card mt-3" id="<%= dom_id(l) %>">
+<div class="card mt-3" id="<%= dom_id(l) %>">
       <div class="card-body">
         <h1 class="card-title text-center"><%= l.name %></h1>
         <div class="d-flex "> 
           <%= link_to "Vis liste", list_path(l), class: "btn btn-primary" %>
           <%= link_to "Rediger liste", edit_list_path(l), class: "btn btn-primary" %>
-          <%= link_to "Slet liste", list_path(l), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          <%= link_to "Slet liste", list_path(l), data: { turbo_method: :delete, turbo_confirm: "Er du sikker på du vil slætte listen? Alt under den vil også blive slettet" }, class: "btn btn-danger" %>
         </div>
       </div>
     </div>

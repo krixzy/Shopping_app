@@ -1,0 +1,11 @@
+<%= turbo_stream.append "sublist_items" do %>
+    <%= render partial: "item", locals: { item: @item, list_id: params[:list_id], sublist_id: params[:sublist_id]} %>
+<% end %>
+<%= turbo_stream.replace "new_item" do %>
+   <%= turbo_frame_tag "new_item" do %>
+      <div class="d-flex justify-content-center">
+          <%= link_to "Tilføj vare", new_list_sublist_item_path(list_id, sublist.id), class: "btn btn-primary" %>
+          <%= link_to "Slet", list_sublist_path(list_id, sublist.id), data: { turbo_method: :delete, turbo_confirm: "Er du sikker på du vil slette inkøbslokation? dette vil også slætte alle vare tilknyttet" }, class: "btn btn-danger"%>
+      </div>
+    <% end %>
+<% end %>

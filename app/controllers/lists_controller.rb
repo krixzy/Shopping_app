@@ -28,7 +28,7 @@ class ListsController < SessionController
   end
   def destroy
     @list = List.find(params[:id])
-    remove_sublist(@list.id)
+    # remove_sublist(@list.id)
     @list.destroy
     respond_to do |format|
       format.turbo_stream do

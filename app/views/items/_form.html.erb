@@ -1,0 +1,22 @@
+<%= form_with url: :list_sublist_items, model: @item do  |i|%>
+    
+    <div class="form-group d-flex flex-column align-items-center">
+         <%= i.label "Navn på vare" %>
+         <%= i.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="form-group d-flex flex-column align-items-center">
+        <%= i.label "Antal" %>
+        <%= i.number_field :amount, class: "form-control" %>
+    </div>
+
+    <div class="form-group d-flex flex-column align-items-center">
+        <%= i.label "Pris" %>
+        <%= i.number_field :price, class: "form-control" %>
+    </div>
+
+    <div class="form-group d-flex justify-content-center">
+        <%= i.submit "Tilføj vare", class: "btn btn-primary" %>
+        <%= link_to "Fortyrd", list_path(params[:list_id]), class: "btn btn-danger"%>
+    </div>
+<% end %>

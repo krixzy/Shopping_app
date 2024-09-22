@@ -1,9 +1,24 @@
-<div class="card mt-3" id="<%= dom_id(sublist) %>">
+<div class="card mt-3 col-12" id="<%= dom_id(sublist) %>">
   <div class="card-body">
     <h5 class="card-title text-center"><%= sublist.name %></h5>
     <%= turbo_frame_tag "new_item" do %>
-        <%= link_to "Tilføj vare", new_list_sublist_item_path(list_id, sublist.id), class: "btn btn-primary" %>
-        <%= link_to "Slet", list_sublist_path(list_id, sublist.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger"%>
+      <div class="d-flex justify-content-center">
+          <%= link_to "Tilføj vare", new_list_sublist_item_path(list_id, sublist.id), class: "btn btn-primary" %>
+          <%= link_to "Slet", list_sublist_path(list_id, sublist.id), data: { turbo_method: :delete, turbo_confirm: "Er du sikker på du vil slette inkøbslokation? dette vil også slætte alle vare tilknyttet" }, class: "btn btn-danger"%>
+      </div>
     <% end %>
-  </div>
+  <table class="col-12">
+    <thead>
+      <tr>
+        <th class="col-2">Antal</th>
+        <th class="col-6">Navn</th>
+        <th class="col-2">Pris</th>
+        <th class="col-2"></th>
+
+      </tr>
+    </thead>
+    <tbody id="sublist_items">
+          <%= render partial: "items/item", collection: sublist.items, locals: {list_id: list_id, sublist_id: sublist.id } %>
+    </tbody>
+</table>
 </div>

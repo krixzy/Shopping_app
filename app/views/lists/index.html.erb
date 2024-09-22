@@ -1,10 +1,10 @@
 <div class="container vh-100 d-flex flex-column align-items-center mt-5"> 
-  <h1>Shopping list</h1>
+  <h1>Indkøbsliste</h1>
 
   <%= turbo_frame_tag "newList" do %>
     <%= link_to "Tilføj ny liste", new_list_path, class: "btn btn-primary" %>
   <% end %>
   <div id="list_items">
-      <%= render partial: "item", collection: @lists, as: :l %>
+      <%= render partial: "list", collection: @lists, as: :l %>
   </div>
 </div>

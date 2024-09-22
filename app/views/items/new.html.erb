@@ -1,2 +1,10 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<h1 class="text-center">Create a new Sublist name</h1>
+
+<%= turbo_frame_tag "new_item" do %>
+    <% if flash[:notice] %>
+        <div class="alert alert-info">
+            <%= flash[:notice] %>
+        </div>
+    <% end %>
+    <%= render "form", item: @item %>
+<% end %>

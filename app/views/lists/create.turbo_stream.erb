@@ -1,5 +1,5 @@
 <%= turbo_stream.append "list_items" do %>
-  <%= render partial: "item", locals: { l: @list } %>
+  <%= render partial: "list", locals: { l: @list } %>
 <% end %>
 <%= turbo_stream.replace "newList" do %>
   <%= turbo_frame_tag "newList" do %>

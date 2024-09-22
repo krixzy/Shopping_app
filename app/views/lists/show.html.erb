@@ -1,11 +1,13 @@
-<div class="d-flex justify-content-center mt-3 flex-column justify-content-center align-items-center ">
-    <h1><%= @list.name%> </h1>
+<div class="p-3">
+    <%= link_to "Tilbage til lister", lists_path, class: "btn btn-secondary"%>
+    <div class="d-flex justify-content-center mt-3 flex-column justify-content-center align-items-center ">
+        <h1><%= @list.name%> </h1>
 
-    <%= turbo_frame_tag "new_sublist" do %>
-        <%= link_to "Tilføj inkøbslokation", new_list_sublist_path(@list), class: "btn btn-primary" %>
-    <% end %>   
-    <div id="sublist_items">
-        <%= render partial: "sublist", collection: @sublists, locals: { list_id: @list.id } %>
-    </div>      
-
-</div>  
+        <%= turbo_frame_tag "new_sublist" do %>
+            <%= link_to "Tilføj butik", new_list_sublist_path(@list), class: "btn btn-primary" %>
+        <% end %>   
+        <div class="col-12" id="sublist">
+            <%= render partial: "sublist", collection: @sublists, locals: { list_id: @list.id } %>
+        </div>      
+    </div>  
+</div>
