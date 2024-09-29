@@ -1,5 +1,7 @@
 <div class="p-3">
-    <%= link_to "Tilbage til lister", lists_path, class: "btn btn-secondary"%>
+    <%= link_to lists_path, class: "btn" do %>
+        <i class="bi bi-arrow-left bi-xl" style="font-size: 2rem"></i>
+    <% end %>
     <div class="d-flex justify-content-center mt-3 flex-column justify-content-center align-items-center ">
         <h1><%= @list.name%> </h1>
 

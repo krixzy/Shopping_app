@@ -4,5 +4,6 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6}
     validates :username, presence: true, uniqueness: true
     validates :password, confirmation: true
+    has_many :lists, dependent: :destroy
 
 end
